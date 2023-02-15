@@ -15,6 +15,6 @@ class Tag extends Model
     ];
 
     public function movies(){
-        return $this -> belongsToMany(movie :: class)
+        return $this -> belongsToMany(movie :: class);
     }
 }
