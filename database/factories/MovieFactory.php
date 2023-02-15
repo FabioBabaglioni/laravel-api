@@ -17,7 +17,9 @@ class MovieFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => fake() -> words(rand(1, 3), true),
+            'year' => fake() -> date(),
+            'cashOut' => fake() -> numberBetween(1000, 10000000)
         ];
     }
 }
