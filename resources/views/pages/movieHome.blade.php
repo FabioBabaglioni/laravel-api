@@ -3,7 +3,7 @@
 @section('content')
 <h1 class="text-center py-3">Lista film completa</h1>
 
-<a href="" class="d-flex justify-content-center mb-3">
+<a href="{{route('movie.create')}}" class="d-flex justify-content-center mb-3">
     <div class="btn btn-primary">Aggiungi nuovo film</div>
 </a>
 
