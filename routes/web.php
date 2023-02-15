@@ -15,4 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [MainController :: class, 'home'])
-    ->name('product.home');
+    ->name('home');
+    
+Route::get('/movie', [MainController :: class, 'movieHome'])
+    ->name('movie.home');
