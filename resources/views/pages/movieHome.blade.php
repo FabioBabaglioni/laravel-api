@@ -10,10 +10,10 @@
 
 <ul>
     @foreach ($movies as $movie)
+
     <li>{{$movie -> name}}
         <a href="">Edit</a>
         <a href="{{route('movie.delete', $movie)}}">Delete</a>
-
     </li>
     @endforeach
 </ul>

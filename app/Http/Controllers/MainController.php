@@ -24,11 +24,11 @@ class MainController extends Controller
         return view('pages.movieHome', compact('movies'));
     }
 
-     public function movieDelete(movie $movie){
+     public function movieDelete(Movie $movie){
 
-        $movie -> movies() -> sync([]);
+        $movie -> tags() -> sync([]);
         $movie -> delete();
 
-        return redirect() -> route('home');
+        return redirect() -> route('movie.home');
     }
 }

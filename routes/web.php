@@ -19,5 +19,6 @@ Route::get('/', [MainController :: class, 'home'])
 
 Route::get('/movie', [MainController :: class, 'movieHome'])
     ->name('movie.home');
-Route::get('/movie/delete', [MainController :: class, 'movieDelete'])
+
+Route::get('/movie/delete/{movie}', [MainController :: class, 'movieDelete'])
     ->name('movie.delete');
