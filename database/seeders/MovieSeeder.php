@@ -22,7 +22,7 @@ class MovieSeeder extends Seeder
         Movie :: factory() -> count(100) -> make() -> each(function($p){
             $genre = Genre :: inRandomOrder() -> first();
 
-            $p -> Genre() -> associate($genre);
+            $p -> genre() -> associate($genre);
 
             $p -> save();
 
