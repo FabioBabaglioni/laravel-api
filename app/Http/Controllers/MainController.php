@@ -19,7 +19,7 @@ class MainController extends Controller
 
     public function movieHome(){
 
-        $movies = movie :: all();
+        $movies = movie :: orderBy('created_at', 'DESC') -> get();
         
         return view('pages.movieHome', compact('movies'));
     }
@@ -63,7 +63,34 @@ class MainController extends Controller
     }
 
     public function movieEdit(movie $movie){
+
+        $tags = tag :: all();
+        $genres = genre :: all();
         
-        return view('pages.movieEdit', compact('movie'));
+        return view('pages.movieEdit', compact('movie', 'tags', 'genres'));
+    }
+
+    public function movieUpdate(Request $request, movie $movie){
+         
+        $data = $request -> validate([
+        'name' => 'required|string|max:64',
+        'year' => 'required|date',
+        'cashOut' => 'required|min:0|max:10000000',
+        'genre_id' => 'required|integer',
+        'tags_id' => 'required',
+        ]);
+
+        $movie -> update($data);
+
+        $genre = genre :: find($data['genre_id']);
+
+        $movie -> genre() -> associate($genre);
+
+        $movie -> save();
+
+        $tags = tag :: find($data['tags_id']);
+        $movie -> tags() -> attach($tags);
+
+        return redirect() -> route('movie.home');
     }
 }
