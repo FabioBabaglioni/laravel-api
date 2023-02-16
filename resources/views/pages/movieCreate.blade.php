@@ -2,6 +2,9 @@
 
 @section('content')
 <h2 class="text-center py-3">Crea nuovo film</h2>
+<a href="{{route('home')}}" class="d-flex justify-content-center m-3">
+    <div class="btn btn-danger">Indietro</div>
+</a>
 
 <form class="row g-3 d-flex justify-content-center" method="POST" action="{{route('movie.store')}}">
     @csrf
