@@ -13,6 +13,7 @@
 </head>
 
 <body>
+    @include('components.errors')
     <div class="container">
         @yield('content')
     </div>

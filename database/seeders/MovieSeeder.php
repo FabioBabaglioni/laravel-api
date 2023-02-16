@@ -19,15 +19,15 @@ class MovieSeeder extends Seeder
      */
     public function run()
     {
-        Movie :: factory() -> count(100) -> make() -> each(function($p){
+        Movie :: factory() -> count(100) -> make() -> each(function($m){
             $genre = Genre :: inRandomOrder() -> first();
 
-            $p -> genre() -> associate($genre);
+            $m -> genre() -> associate($genre);
 
-            $p -> save();
+            $m -> save();
 
             $tags = Tag :: inrandomOrder() -> limit(rand(1, 4)) -> Get();
-            $p -> Tags() -> attach($tags);
+            $m -> Tags() -> attach($tags);
         });
     }
 }

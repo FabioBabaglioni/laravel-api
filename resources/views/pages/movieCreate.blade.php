@@ -11,15 +11,15 @@
     </div>
     <div class="col-md-7">
         <label for="year" class="form-label fs-5">Anno di uscita</label>
-        <input type="number" name="year" class="form-control">
+        <input type="date" name="year" class="form-control">
     </div>
     <div class="col-7">
         <label for="cashOut" class="form-label fs-5">Incassi</label>
         <input type="number" class="form-control" name="cashOut">
     </div>
     <div class="col-7">
-        <label for="genres" class="form-label fs-5">Genere</label>
-        <select name="genres">
+        <label for="genre_id" class="form-label fs-5">Genere</label>
+        <select name="genre_id">
             @foreach ($genres as $genre)
             <option value="{{$genre -> id}}">{{$genre -> name}}</option>
             @endforeach
@@ -33,12 +33,11 @@
             <label for="tags">{{$tag -> name}}</label>
             <br>
             @endforeach
-
         </div>
     </div>
 
     <div class="col-7">
-        <button type="submit" class="btn btn-outline-success fs-5">Aggiungi prodotto</button>
+        <button type="submit" class="btn btn-outline-success fs-5">Aggiungi Film</button>
     </div>
 </form>
 @endsection

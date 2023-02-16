@@ -44,20 +44,20 @@ class MainController extends Controller
          
         $data = $request -> validate([
         'name' => 'required|string|max:64',
-        'year' => 'required|date|before:tomorow',
+        'year' => 'required|date',
         'cashOut' => 'required|min:0|max:10000000',
-        'tags_id' => 'required',
-        'genres' => 'required',
+        'genre_id' => 'required|integer',
+        'tags' => 'required',
         ]);
 
         $movie = movie :: make($data);
-        $tag = tag :: find($data['tags_id']);
+        $genre = genre :: find($data['genre_id']);
 
-        $movie -> tag() -> associate($tag);
+        $movie -> genre() -> associate($genre);
         $movie -> save();
 
-        $genres = genre :: find($data['genres']);
-        $movie -> genres() -> attach($genres);
+        $tags = tag :: find($data['tags']);
+        $movie -> tags() -> attach($tags);
 
         return redirect() -> route('movie.home');
     }
