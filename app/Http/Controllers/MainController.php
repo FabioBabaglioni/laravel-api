@@ -61,4 +61,9 @@ class MainController extends Controller
 
         return redirect() -> route('movie.home');
     }
+
+    public function movieEdit(movie $movie){
+        
+        return view('pages.movieEdit', compact('movie'));
+    }
 }
