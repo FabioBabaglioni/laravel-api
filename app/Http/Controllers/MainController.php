@@ -70,8 +70,9 @@ class MainController extends Controller
         return view('pages.movieEdit', compact('movie', 'tags', 'genres'));
     }
 
-    public function movieUpdate(Request $request, movie $movie){
-         
+    public function movieUpdate(Request $request, Movie $movie){
+        
+
         $data = $request -> validate([
         'name' => 'required|string|max:64',
         'year' => 'required|date',
@@ -80,16 +81,16 @@ class MainController extends Controller
         'tags_id' => 'required',
         ]);
 
+        
         $movie -> update($data);
 
-        $genre = genre :: find($data['genre_id']);
+        $genre = Genre :: find($data['genre_id']);
 
         $movie -> genre() -> associate($genre);
-
         $movie -> save();
 
-        $tags = tag :: find($data['tags_id']);
-        $movie -> tags() -> attach($tags);
+        $tags = Tag :: find($data['tags_id']);
+        $movie -> tags() -> sync($tags);
 
         return redirect() -> route('movie.home');
     }

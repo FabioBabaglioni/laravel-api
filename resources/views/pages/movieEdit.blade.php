@@ -7,7 +7,7 @@
     <div class="btn btn-danger">Indietro</div>
 </a>
 
-<form class="row g-3 d-flex justify-content-center" method="POST" action="{{route('movie.update')}}">
+<form class="row g-3 d-flex justify-content-center" method="POST" action="{{route('movie.update', $movie)}}">
 
     @csrf
 
