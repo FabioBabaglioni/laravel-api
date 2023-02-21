@@ -35,7 +35,4 @@ Route::post('/movie/edit/{movie}', [MainController :: class, 'movieUpdate'])
 
 
 
-use App\Http\Controllers\ApiController;
-
-Route:: get('/api/v1/test', [ApiController :: class, 'test']);
-Route:: get('/api/v1/test/all', [ApiController :: class, 'movieHome']);
+  

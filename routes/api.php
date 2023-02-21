@@ -18,4 +18,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// Route:: get('/api/v1/test', [ApiController :: class, 'test']);
+Route:: get('/api/v1/test', [ApiController :: class, 'test']);
+Route:: get('/api/v1/test/all', [ApiController :: class, 'movieHome']);
+ 
